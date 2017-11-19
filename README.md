@@ -28,12 +28,12 @@ A histogram of oriented gradients counts gradients in small areas of the image a
 We first create HOG feature arrays for both the set of car images and non-car images. We then use split off 20% of the data to use as test data. The LinearSVC is trained and achieves a test accuracy of 99% in 9 seconds. The State Vector Machine is used for classifying data.
 
 ## Sliding Window
-Based on a window size and overlap, we search in the image for positive detections of cars. I had a default setting of 64x64 which was roughly the size of a car far away, but I also utilized different scales to search for cars that were closer. `search_windows()` took care of collecting positive detections, resizing the image appropriately, pulling out the features of that particular window, prediction, and then proper binning. 
+Based on a window size and overlap, we search in the image for positive detections of cars. I had a default setting of 64x64 which was roughly the size of a car far away, but I also utilized different scales to search for cars that were closer. The scales used were 1, 1.25, 1.5, 1.75, which allowed for different sized cars. `search_windows()` took care of collecting positive detections, resizing the image appropriately, pulling out the features of that particular window, prediction, and then proper binning. 
 
 ## Heat Map
 A heat map was used to keep track of where cars were over time, so that random outliers could be rejected. This also allowed to skip every second video frame. There is a user defined threshold that cuts off low-heat areas. I also implemented that we scan only in the left and right corners for new cars, and the rest is taken care of by the heat map.
 
-![Heat Map](output_iamges/heatmap.jpg)
+![Heat Map](output_images/heatmap.jpg)
 
 ## Discussion
 The pipeline works decently well for the given video but is somewhat slow and would be too much of a performance hog if added to lane line detection and other functionality. It still might struggle with different lighting conditions and I suspect it would not work well with darker conditions. This could be fixed with increased training data, and perhaps better logic of where to search. 
