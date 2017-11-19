@@ -22,7 +22,7 @@ We load the data from a bin of car images and non-car images.
 ![Not Car](output_images/sample-notcar.png)
 
 ## Histogram of Oriented Gradients
-A histogram of oriented gradients counts gradients in small areas of the image and takes the largest gradient, which gives a rough outline of the object. This can then be used to train the Linear SVM classifier. This is done in the function `get_hog_features` which utilizes the `skimage` library. This returns an array of features as well as an image. We also add a color histogram and spatial binning to improve results and have additional features to work with. Below is the HOG of the first car image.
+A histogram of oriented gradients counts gradients in small areas of the image and takes the largest gradient, which gives a rough outline of the object. This can then be used to train the Linear SVM classifier. This is done in the function `get_hog_features` which utilizes the `skimage` library. This returns an array of features as well as an image. We also add a color histogram and spatial binning to improve results and have additional features to work with. Features list is normalized by `StandardScalar()` since we are using multiple, different sources of feature data. Below is the HOG of the first car image.
 
 ![HOG of car](output_images/sample-hog.png)  
 
