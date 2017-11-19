@@ -24,7 +24,16 @@ We load the data from a bin of car images and non-car images.
 ## Histogram of Oriented Gradients
 A histogram of oriented gradients counts gradients in small areas of the image and takes the largest gradient, which gives a rough outline of the object. This can then be used to train the Linear SVM classifier. This is done in the function `get_hog_features` which utilizes the `skimage` library. This returns an array of features as well as an image. We also add a color histogram and spatial binning to improve results and have additional features to work with. Below is the HOG of the first car image.
 
-![HOG of car](output_images/sample-hog.png)
+![HOG of car](output_images/sample-hog.png)  
+
+The following HOG params were used, based on testing and the values given by udacity:
+`color_space = 'LUV'  
+orient = 8  
+pix_per_cell = 8  
+cell_per_block = 2  
+hog_channel = 0  
+spatial_size = (16, 16)  
+hist_bins = 32`
 
 ## Train a classifier
 We first create HOG feature arrays for both the set of car images and non-car images. We then use split off 20% of the data to use as test data. The LinearSVC is trained and achieves a test accuracy of 99% in 9 seconds. The State Vector Machine is used for classifying data.
