@@ -1,6 +1,8 @@
 # Vehicle Detection
 [![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
+![Final Video](output_images/final-gif.gif)
+
 The Project
 ---
 
